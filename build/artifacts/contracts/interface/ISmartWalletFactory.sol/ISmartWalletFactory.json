@@ -6,34 +6,9 @@
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "agent",
-          "type": "address"
-        },
-        {
           "internalType": "bytes32",
           "name": "user",
           "type": "bytes32"
-        },
-        {
-          "internalType": "address",
-          "name": "wormhole",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "tokenBridge",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "weth",
-          "type": "address"
-        },
-        {
-          "internalType": "uint16",
-          "name": "chainId",
-          "type": "uint16"
         }
       ],
       "name": "createSmartWallet",
@@ -56,13 +31,33 @@
         },
         {
           "internalType": "address",
-          "name": "agent",
+          "name": "agent_",
           "type": "address"
         },
         {
           "internalType": "address",
           "name": "beacon",
           "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "wormhole_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenBridge_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "weth_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint16",
+          "name": "chainId",
+          "type": "uint16"
         }
       ],
       "name": "initialize",

@@ -40,4 +40,8 @@ abstract contract SmartWalletRouterStorage is
     function changeAgent(address new_agent) external onlyOwner {
         agent = new_agent;
     }
+
+    function changeFactory(address new_factory) external onlyOwner {
+        factory = ISmartWalletFactory(new_factory);
+    }
 }

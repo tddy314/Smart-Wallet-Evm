@@ -39,7 +39,7 @@ contract SmartWallet is SmartWalletStorage{
         chainId = chainId_;
     }
 
-    function transferTokenBackToSmartWallet(
+    function transferTokenBackToSmartWallet( // transfer back to solana smart wallet
         address token,
         uint256 amount,
         uint256 arbiterFee,
@@ -50,7 +50,7 @@ contract SmartWallet is SmartWalletStorage{
         return tokenBridge.transferTokens{value: wormholeFee}(
             token,
             amount, 
-            chainId,
+            chainId, // 1
             user,
             arbiterFee,
             nonce

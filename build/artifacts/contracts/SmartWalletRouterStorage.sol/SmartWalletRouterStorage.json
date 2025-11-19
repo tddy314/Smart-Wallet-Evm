@@ -222,6 +222,19 @@
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "new_factory",
+          "type": "address"
+        }
+      ],
+      "name": "changeFactory",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "factory",
       "outputs": [

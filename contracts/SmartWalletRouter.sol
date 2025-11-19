@@ -33,14 +33,7 @@ contract SmartWalletRouter is SmartWalletRouterStorage {
     }
 
     function createSmartWallet(bytes32 user) external returns(address) {
-        address new_wallet = factory.createSmartWallet(
-            agent,
-            user,
-            wormhole,
-            tokenBridge,
-            weth,
-            chainId
-        );
+        address new_wallet = factory.createSmartWallet(user);
         walletByUser[user] = new_wallet;
         return new_wallet;
     }

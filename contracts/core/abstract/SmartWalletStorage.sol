@@ -9,7 +9,7 @@ import {IWETH} from "../../interface/IWeth.sol";
 import {TransferToken} from "../../message/Message.sol";
 
 abstract contract SmartWalletStorage is OwnableUpgradeable, ReentrancyGuardUpgradeable {
-    bytes32 public user;
+    bytes32 public user; // solana smart wallet
     address public agent;
     address public pendingAdmin;
     ISmartWalletFactory public factory;

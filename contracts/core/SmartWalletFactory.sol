@@ -13,22 +13,29 @@ import {EnumerableSet} from "@openzeppelin/contracts/utils/structs/EnumerableSet
 contract SmartWalletFactory is SmartWalletFactoryStorage {
     using EnumerableSet for EnumerableSet.AddressSet;
 
-    function initialize(address new_owner, address agent_, address beacon) external initializer {
+    function initialize(
+        address new_owner, 
+        address agent_, 
+        address beacon,
+        address wormhole_,
+        address tokenBridge_,
+        address weth_,
+        uint16 chainId_
+    ) external initializer {
         require(new_owner != address(0), "Owner is address zero!");
         require(beacon != address(0), "Beacon is address zero!");
         SmartWalletBeacon = ISmartWalletBeacon(beacon);
         __Ownable_init(new_owner);
         _transferOwnership(new_owner);
         agent = agent_;
+        wormhole = wormhole_;
+        tokenBridge = tokenBridge_;
+        weth = weth_;
+        chainId = chainId_;
     }
 
     function createSmartWallet(
-        address agent,
-        bytes32 user,
-        address wormhole,
-        address tokenBridge,
-        address weth,
-        uint16 chainId
+        bytes32 user
     ) external onlyAuthorization returns(address) {
         require(walletsByUser[user] == address(0), "Already initialized");
         address wallet = _preDeploy(agent, user, wormhole, tokenBridge, weth, chainId);
@@ -38,23 +45,23 @@ contract SmartWalletFactory is SmartWalletFactoryStorage {
     }
 
     function _preDeploy(
-        address agent,
+        address _agent,
         bytes32 user,
-        address wormhole,
-        address tokenBridge,
-        address weth,
-        uint16 chainId
+        address _wormhole,
+        address _tokenBridge,
+        address _weth,
+        uint16 _chainId
     ) internal returns (address newWallet) {
         bytes memory data = abi.encodeWithSelector(
             ISmartWallet.initialize.selector,
             owner(),
-            agent,
+            _agent,
             address(this),
             user,
-            wormhole,
-            tokenBridge,
-            weth,
-            chainId
+            _wormhole,
+            _tokenBridge,
+            _weth,
+            _chainId
         );
 
         bytes32 salt = keccak256(

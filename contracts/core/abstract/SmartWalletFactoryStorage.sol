@@ -13,13 +13,24 @@ abstract contract SmartWalletFactoryStorage is ISmartWalletFactory, OwnableUpgra
     mapping(bytes32 => address) public walletsByUser;
     address public router;
     address public agent;
+    address public wormhole;
+    address public tokenBridge;
+    address public weth;
+    uint16 public chainId;
+
 
     modifier onlyAuthorization() {
-        require(msg.sender == owner() || msg.sender == agent || tx.origin == agent, "not authorized!");
+        require(msg.sender == owner() || msg.sender == agent || tx.origin == agent || msg.sender == router, "not authorized!");
         _;
     }
 
     function setRouter(address new_router) external onlyOwner {
         router = new_router;
     }
+
+    function changeAgent(address new_agent) external onlyOwner {
+        agent = new_agent;
+    }
+
+    
 }

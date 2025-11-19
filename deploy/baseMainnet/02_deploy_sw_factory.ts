@@ -1,6 +1,6 @@
 import { DeployFunction } from "hardhat-deploy/types";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-
+import {addresses} from "../../utils/addresses";
 
 const deploy: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
     const { deployments, getNamedAccounts } = hre;
@@ -21,7 +21,7 @@ const deploy: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
             execute: {
                 init: {
                     methodName: "initialize",
-                    args: [deployer, deployer, beaconAddress]
+                    args: [deployer, deployer, beaconAddress, addresses.base.wormhole, addresses.base.tokenBridge, addresses.base.weth, 1]
                 }
             }
         }

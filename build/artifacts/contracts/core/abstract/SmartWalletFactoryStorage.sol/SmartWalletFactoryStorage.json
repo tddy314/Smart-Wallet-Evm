@@ -94,36 +94,37 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "chainId",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
-          "name": "agent",
+          "name": "new_agent",
           "type": "address"
-        },
+        }
+      ],
+      "name": "changeAgent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
         {
           "internalType": "bytes32",
           "name": "user",
           "type": "bytes32"
-        },
-        {
-          "internalType": "address",
-          "name": "wormhole",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "tokenBridge",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "weth",
-          "type": "address"
-        },
-        {
-          "internalType": "uint16",
-          "name": "chainId",
-          "type": "uint16"
         }
       ],
       "name": "createSmartWallet",
@@ -146,13 +147,33 @@
         },
         {
           "internalType": "address",
-          "name": "agent",
+          "name": "agent_",
           "type": "address"
         },
         {
           "internalType": "address",
           "name": "beacon",
           "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "wormhole_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenBridge_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "weth_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint16",
+          "name": "chainId",
+          "type": "uint16"
         }
       ],
       "name": "initialize",
@@ -207,6 +228,19 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "tokenBridge",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -228,6 +262,32 @@
         }
       ],
       "name": "walletsByUser",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "weth",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "wormhole",
       "outputs": [
         {
           "internalType": "address",
