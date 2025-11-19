@@ -18,4 +18,8 @@ abstract contract SmartWalletFactoryStorage is ISmartWalletFactory, OwnableUpgra
         require(msg.sender == owner() || msg.sender == agent || tx.origin == agent, "not authorized!");
         _;
     }
+
+    function setRouter(address new_router) external onlyOwner {
+        router = new_router;
+    }
 }

@@ -13,13 +13,12 @@ import {EnumerableSet} from "@openzeppelin/contracts/utils/structs/EnumerableSet
 contract SmartWalletFactory is SmartWalletFactoryStorage {
     using EnumerableSet for EnumerableSet.AddressSet;
 
-    function initialize(address new_owner, address router_, address agent_, address beacon) external initializer {
+    function initialize(address new_owner, address agent_, address beacon) external initializer {
         require(new_owner != address(0), "Owner is address zero!");
         require(beacon != address(0), "Beacon is address zero!");
         SmartWalletBeacon = ISmartWalletBeacon(beacon);
         __Ownable_init(new_owner);
         _transferOwnership(new_owner);
-        router = router_;
         agent = agent_;
     }
 

@@ -56,11 +56,6 @@
         },
         {
           "internalType": "address",
-          "name": "router",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
           "name": "agent",
           "type": "address"
         },
